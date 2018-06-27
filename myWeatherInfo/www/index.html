@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>나만의 기상정보</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" />
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script type="text/javascript" src="cordova.js"></script>
+    </head>
+    <body>
+	<script>
+	app.initialize();
+	document.addEventListener('deviceready', this.onDeviceReady, false);
+	</script>
+        <div data-role="page" id=home>
+            <div data-role="header">
+                <!-- 헤더 부분 -->
+                <h1>나만의 기상정보</h1>
+            </div>
+            <img src="image/clouds.jpg" class="main_img" width="130%" height="130%"/>
+            <a href="#p1" data-role="button">날씨 지도</a>
+            <a href="#p2" data-role="button">미세먼지 농도</a>
+            <a href="#p3" data-role="button">기상알림서비스</a>
+            <a href="#p4" data-role="button">생활기상지수조회</a>
+            <a href="#p5" data-role="button">대풍정보조회</a>
+            <a href="#p6" data-role="button">대피소 지도</a>
+            <div data-role="content">
+                <!-- 컨텐츠 부분 -->
+                <h1>나만의 기상정보 앱은 기상에관한 여러가지 정보, 그리고 기능을 포함합니다.</h1>
+            </div>
+            <div data-role="footer">
+                <!-- 풋터 부분 -->
+                <h1>PNU Term Project Group 4</h1>
+            </div>
+        </div>
+        <!-- 서브 페이지 1 -->
+        <div data-role="page" id="p1">
+			<div id="map-canvas" style="width : 1000px; height : 850px"></div>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-TxnSbugp-b7Bw-M-k1kUHxmxxSxHNMM&callback=initialize"></script>
+		<script type="text/javascript" charset="utf-8" src="js/OpenWeatherMapLayer.js"></script>
+			<div data-role="footer">
+                <h1>PNU Term Project Group 4</h1>
+            </div>
+        </div>
+
+        <!-- 서브 페이지 2 -->
+        <div data-role="page" id="p2">
+            <div data-role="header">
+                <a href="#home" data-icon="home">Home</a>
+                <h1>미세먼지 농도</h1>
+            </div>
+            <div data-role="content">
+                <!-- 컨텐츠 부분 -->
+                <ul data-role="listview">
+                    <li>
+                        <a href="#finedust1"> <h3>시도별 실시간 평균정보 조회</h3></a>
+                    </li>
+                    <li>
+                        <a href="#finedust2"> <h3>시도별 실시간 측정정보 조회</h3></a>
+                    </li>
+                    <li>
+                        <a href="#finedust3"> <h3>측정소별 실시간 측정정보 조회</h3></a>
+                    </li>
+
+                </ul>
+            </div>
+            <div data-role="footer">
+                <h1>PNU Term Project Group 4</h1>
+            </div>
+        </div>
+
+        <!-- 서브 페이지 3 -->
+        <div data-role="page" id="p3">
+            <div data-role="header">
+                <a href="#home" data-icon="home">Home</a>
+                <h1>기상알림서비스</h1>
+            </div>
+            <div data-role="content">
+                <!-- 시간 입력 폼 -->
+                <input type="time" name="time" id="time" value="" />
+                <a href="page1.html" data-role="button">알림설정</a>
+            </div>
+            <div data-role="footer">
+                <h1>PNU Term Project Group 4</h1>
+            </div>
+        </div>
+
+        <!-- 서브 페이지 4 -->
+        <div data-role="page" id="p4">
+            <div data-role="header">
+                <a href="#home" data-icon="home">Home</a>
+                <h1>생활기상지수조회</h1>
+            </div>
+            <div data-role="content">
+                <!-- 컨텐츠 부분 -->
+                <p>
+                    안동 신세동 칠층전탑(安東新世洞七層塼塔)은 안동시 법흥동에 있는 남북국 시대의 전탑이다.
+                </p>
+            </div>
+            <div data-role="footer">
+                <h1>PNU Term Project Group 4</h1>
+            </div>
+        </div>
+        <!-- 서브 페이지 5 -->
+        <div data-role="page" id="p5">
+            <div data-role="header">
+                <a href="#home" data-icon="home">Home</a>
+                <h1>대풍정보조회</h1>
+            </div>
+				<div id="map-canvas2" style="width : 1000px; height : 850px"></div>
+			<script type="text/javascript" charset="utf-8" src="js/test.js"></script>
+            <div data-role="footer">
+                <h1>PNU Term Project Group 4</h1>
+            </div>
+        </div>
+        <!-- 서브 페이지 6 -->
+        <div data-role="page" id="p6">
+			<div id="map_canvas" style="width : 1000px; height : 850px"></div>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-TxnSbugp-b7Bw-M-k1kUHxmxxSxHNMM&callback=getMapLocation"></script>
+		<script type="text/javascript" charset="utf-8" src="js/map.js"></script>
+        </div>
+        <!-- 시도별 실시간 평균정보 조회 -->
+        <div data-role="page" id="finedust1">
+            <div data-role="header">
+                <a href="#home" data-icon="home">Home</a>
+                <h1>시도별 실시간 평균정보 조회</h1>
+            </div>
+            <div data-role="content">
+                <!-- 컨텐츠 부분 -->
+                <div data-role="fieldcontain">
+                    <label for="select-choice-1" class="select">지역 선택 :</label>
+                    <select name="select-choice-1" id="select-choice-1">
+                        <option value="all">전국</option>
+                        <option value="seoul">서울</option>
+                        <option value="busan">부산</option>
+                        <option value="daegu">대구</option>
+                        <option value="daejeon">대전</option>
+                        <option value="kwangwondo">강원도</option>
+                        <option value="kyeongsangnamdo">경상남도</option>
+                        <option value="kyeongsangbokdo">경상북도</option>
+                        <option value="kwangju">광주</option>
+                    </select>
+                </div>
+                <p>
+                    <b>사용방법 : </b> 원하는 지역 선택
+                </p>
+            </div>
+            <div data-role="footer">
+                <h1>PNU Term Project Group 4</h1>
+            </div>
+        </div>
+        <!-- 시도별 실시간 측정정보 조회 -->
+        <div data-role="page" id="finedust2">
+            <div data-role="header">
+                <a href="#home" data-icon="home">Home</a>
+                <h1>시도별 실시간 측정정보 조회</h1>
+            </div>
+            <div data-role="content">
+                <!-- 컨텐츠 부분 -->
+                <div data-role="fieldcontain">
+                    <label for="select-choice-1" class="select">지역 선택 :</label>
+                    <select name="select-choice-1" id="select-choice-1">
+                        <option value="all">전국</option>
+                        <option value="seoul">서울</option>
+                        <option value="busan">부산</option>
+                        <option value="daegu">대구</option>
+                        <option value="daejeon">대전</option>
+                        <option value="kwangwondo">강원도</option>
+                        <option value="kyeongsangnamdo">경상남도</option>
+                        <option value="kyeongsangbokdo">경상북도</option>
+                        <option value="kwangju">광주</option>
+                    </select>
+                </div>
+                <p>
+                    <b>사용방법 : </b> 원하는 지역 선택
+                </p>
+            </div>
+            <div data-role="footer">
+                <h1>PNU Term Project Group 4</h1>
+            </div>
+        </div>
+        <!-- 측정소별 실시간 측정정보 조회 -->
+        <div data-role="page" id="finedust3">
+            <div data-role="header">
+                <a href="#home" data-icon="home">Home</a>
+                <h1>측정소별 실시간 측정정보 조회</h1>
+            </div>
+            <div data-role="content">
+                <!-- 컨텐츠 부분 -->
+                <div data-role="fieldcontain">
+                    <label for="select-choice-1" class="select">지역 선택 :</label>
+                    <select name="select-choice-1" id="select-choice-1">
+                        <option value="all">전국</option>
+                        <option value="seoul">서울</option>
+                        <option value="busan">부산</option>
+                        <option value="daegu">대구</option>
+                        <option value="daejeon">대전</option>
+                        <option value="kwangwondo">강원도</option>
+                        <option value="kyeongsangnamdo">경상남도</option>
+                        <option value="kyeongsangbokdo">경상북도</option>
+                        <option value="kwangju">광주</option>
+                    </select>
+                </div>
+                <p>
+                    <b>사용방법 : </b> 원하는 지역 선택
+                </p>
+            </div>
+            <div data-role="footer">
+                <h1>PNU Term Project Group 4</h1>
+            </div>
+        </div>
+    </body>
+</html>

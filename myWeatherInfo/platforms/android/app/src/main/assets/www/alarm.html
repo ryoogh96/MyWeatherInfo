@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script> 
+</head>
+ 
+<body onLoad="myclock()">
+<script language="JavaScript">
+ var setTime;
+ var message;
+function myclock()
+{
+ndata=new Date()
+
+hours= ndata.getHours();
+mins= ndata.getMinutes();
+secs= ndata.getSeconds();
+
+if (hours < 10) {hours = "0" + hours }
+if (mins < 10) {mins = "0" + mins }
+if (secs < 10) {secs = "0" + secs }
+
+
+
+datastr =hours+":" + mins+":" +secs
+if (setTime==datastr) alert(message)
+message = "not ready yet";
+document.clockexam.clock.value = " "+datastr;
+
+setTimeout("myclock()", 1000);
+}
+</script> 
+<form name="clockexam"><input type="text" size="8" name="clock"></form>
+ 
+Set Alarm time(hh:mm:ss):<input type="text" name="budil" size="13"><input type="button" onclick="setTime=this.previousSibling.value"><br
+
+	
+	 
+ 
+</body>
+</html>
+
+		
+        <title>Weather Alarm</title>
+    </head>
+    <body onLoad=startTime()>
+        <div id="clock" class="weather-clock">
+        </div>
+		<div id="weather-icon">
+		<div id="time_msg"></div>
+		</div>
+		<div class="weather-bottom">
+			<div class="weather-info">
+				<table width="100%">
+					<tr>
+						<td>Тemperature</td>
+						<td id="temp"></td>
+					</tr>
+					<tr>
+						<td>Humidity</td>
+						<td id="humidity"></td>
+					</tr>
+					<tr>
+						<td>Pressure</td>
+						<td id="pressure"></td>
+					</tr>
+					<tr>
+						<td>Wind speed</td>
+						<td id="wind_speed"></td>
+					</tr>
+					<tr>
+						<td>Clouds</td>
+						<td id="clouds"></td>
+					</tr>
+				</table>
+			<div>
+			
+			<div id="city_name" class="weather-city">
+				
+			</div>
+		</div>
+		
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+		<script type="text/javascript" src="js/core.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+			getWeather();
+			
+        </script>
+    </body>
+</html>
